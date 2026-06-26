@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EkkoBank</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+<body>
+    <header class="topo container-padding flex">
+        <img class="logo" src="images/EkkoBank.png" alt="Ekkobank">
+        <div class="usuario flex">
+            <span>José Vítor Miranda</span>
+            <img src="images/avatar.svg" alt="José Vítor Miranda" />
+        </div>
+    </header>
+    <main class="container-padding flex">
+        <nav class="menu">
+            <a href="#" class="active">Início</a>
+            <a href="#">Transferências</a>
+            <a href="#">Investimentos</a>
+            <a href="#">Outros serviços</a>
+        </nav>
+
+        <div class="central-column">
+            <section class="block-saldo">
+                <h2>Olá, José! :)</h2>
+                <time>Quinta-feira, 08/09/2022</time>
+                
+                <div class="flex">
+                    <div class="saldo-value">
+                        <strong>
+                            Saldo <img src="images/olho.svg" alt="Mostrar saldo" />
+                        </strong>
+                        <div class="cc">
+                            <span>Conta Corrente</span>
+                            <span class="value">R$ 2.500,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block-new-transation">
+                <h2>Nova transação</h2>
+                <form action="" method="post" novalidate>
+                    <div class="field">
+                        <select name="transationType" id="transationType" class="field-input" required>
+                            <option value="">Selecione o tipo de transação</option>
+                            <option value="Depósito">Depósito</option>
+                            <option value="Transferência">Transferência</option>
+                            <option value="Pagamento de Boleto">Pagamento de Boleto</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="value">Valor:</label><br>
+                        <input type="number" name="value" id="value" class="field-input" placeholder="0,00" step=".01" min="0" required />
+                    </div>
+                    <div class="field">
+                        <label for="date">Data:</label><br>
+                        <input type="date" name="date" id="date" class="field-input" placeholder="dd/mm/aaaa" required />
+                    </div>
+                    <div class="field">
+                        <button type="submit" class="btn">
+                            Concluir transação
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <aside class="extrato">
+            <h3>Extrato</h3>
+            <div class="register-transation">
+                <div class="transations-group">
+                    <strong class="mes-group">Maio</strong>
+                    <div class="transation-item">
+                        <div class="transation-info">
+                            <span class="type">Transferência</span>
+                            <strong class="value">-R$ 36,00</strong>
+                        </div>
+                        <time class="date">04/09</time>
+                    </div>
+                    <div class="transation-item">
+                        <div class="transation-info">
+                            <span class="type">Transferência</span>
+                            <strong class="value">-R$ 58,00</strong>
+                        </div>
+                        <time class="date">02/09</time>
+                    </div>
+                </div>
+
+                <div class="transations-group">
+                    <strong class="mes-group">Junho</strong>
+                    <div class="transation-item">
+                        <div class="transation-info">
+                            <span class="type">Transferência</span>
+                            <strong class="value">-R$ 50,00</strong>
+                        </div>
+                        <time class="date">30/08</time>
+                    </div>
+                    <div class="transation-item">
+                        <div class="transation-info">
+                            <span class="type">Depósito</span>
+                            <strong class="value">R$ 86,00</strong>
+                        </div>
+                        <time class="date">27/08</time>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <script src="js/ekkobank.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.topo {
+    background-color: var(--cor-primaria);
+    color: #157ecf;
+    font-size: var(--fonte-t3);
+    /*padding-block: 30px;*/
+    margin-bottom: 24px;
+
+    .usuario {
+        & span {
+            margin-right: 40px;
+        }
+    }
+
+    .logo {
+    height: 100px;
+    width: auto;
+}
+}
+
