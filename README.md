@@ -1,0 +1,2 @@
+# EkkoBank
+a Typescript aplication
