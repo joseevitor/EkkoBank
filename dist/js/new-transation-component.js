@@ -1,8 +1,3 @@
-let saldo = 3000;
-const elementSaldo = document.querySelector(".saldo-value .value");
-if (elementSaldo != null) {
-    elementSaldo.textContent = saldo.toString();
-}
 const elementForms = document.querySelector(".block-new-transation form");
 elementForms.addEventListener("submit", function (event) {
     event.preventDefault();

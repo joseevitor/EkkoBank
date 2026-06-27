@@ -1,12 +1,3 @@
-let saldo = 3000;
-
-
-
-
-const elementSaldo = document.querySelector(".saldo-value .value") as HTMLElement;
-if(elementSaldo != null){
-    elementSaldo.textContent = saldo.toString();
-}
 
 const elementForms = document.querySelector(".block-new-transation form") as HTMLFormElement;
 elementForms.addEventListener("submit", function(event) {
@@ -40,7 +31,6 @@ elementForms.addEventListener("submit", function(event) {
         value: value,
         date: date
     }
-
     console.log(newTransation);
     elementForms.reset();
 });
