@@ -14,7 +14,7 @@ elementForms.addEventListener("submit", function (event) {
     if (transationType == "Depósito") {
         saldo += value;
     }
-    else if (transationType == "Transferência" || transationType == "Pagamento de Boleto") {
+    else if (transationType == TransationType.TRANSFERENCIA || transationType == TransationType.PAGAMENTO_BOLETO) {
         saldo -= value;
     }
     else {
@@ -24,7 +24,7 @@ elementForms.addEventListener("submit", function (event) {
     const newTransation = {
         transationType: transationType,
         value: value,
-        date: date
+        date: date,
     };
     console.log(newTransation);
     elementForms.reset();
