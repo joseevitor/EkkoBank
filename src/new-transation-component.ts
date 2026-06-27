@@ -24,7 +24,7 @@ elementForms.addEventListener("submit", function(event) {
         alert("Tipo de Transação é inválido!");
     }
     
-    elementSaldo.textContent = saldo.toString();
+    elementSaldo.textContent = saldo.toLocaleString("pt-br", { currency: "BRL", style: "currency"});
 
     const newTransation: Transation = {
         transationType: transationType,

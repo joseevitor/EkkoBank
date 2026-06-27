@@ -24,7 +24,7 @@
 
         .saldo-value {
             min-width: 180px;
-            /*padding-right: 190px;*/
+            padding-right: 20px;
 
             & strong {
                 font-size: var(--fonte-t2);
