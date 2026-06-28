@@ -3,6 +3,23 @@ import { TransationType } from "./TransationType.js";
 
 let saldo: number = 3000;
 
+function todebit(value: number): void{
+    if (value<= 0) {
+        throw new Error("O valor a ser debitado deve ser maior que zero!");
+    }
+    else if (value > saldo) {
+        throw new Error("Saldo insuficiente!");
+    }
+    saldo -= value;
+}
+
+function todeposit(value: number): void {
+    if (value >= 0) {
+        throw new Error("O valor a ser debitado deve ser menor que zero!");
+    }
+    saldo += value;
+}
+
 const Account = {
     getSaldo() {
         return saldo;
@@ -14,14 +31,13 @@ const Account = {
 
     registerTransation(newTransation: Transation): void {
         if(newTransation.transationType == TransationType.DEPOSITO) {
-                saldo += newTransation.value;
+                todeposit(newTransation.value);
             }
             else if (newTransation.transationType == TransationType.TRANSFERENCIA || newTransation.transationType == TransationType.PAGAMENTO_BOLETO) {
-                saldo -= newTransation.value;
+                todebit(newTransation.value);
             } 
             else {
-                alert("Tipo de Transação é inválido!");
-                return;
+                throw new Error("Tipo de Transação é inválido!");
             }
 
             console.log(newTransation);
