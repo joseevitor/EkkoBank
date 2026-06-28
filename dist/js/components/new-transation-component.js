@@ -1,3 +1,5 @@
+import { TransationType } from "../types/TransationType.js";
+import { getSaldo, updateSaldo } from "./saldo-component.js";
 const elementForms = document.querySelector(".block-new-transation form");
 elementForms.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -11,7 +13,8 @@ elementForms.addEventListener("submit", function (event) {
     let transationType = inputTransationType.value;
     let value = inputValue.valueAsNumber;
     let date = new Date(inputDate.value);
-    if (transationType == "Depósito") {
+    let saldo = getSaldo();
+    if (transationType == TransationType.DEPOSITO) {
         saldo += value;
     }
     else if (transationType == TransationType.TRANSFERENCIA || transationType == TransationType.PAGAMENTO_BOLETO) {
@@ -20,7 +23,7 @@ elementForms.addEventListener("submit", function (event) {
     else {
         alert("Tipo de Transação é inválido!");
     }
-    elementSaldo.textContent = saldo.toLocaleString("pt-br", { currency: "BRL", style: "currency" });
+    updateSaldo(saldo);
     const newTransation = {
         transationType: transationType,
         value: value,
