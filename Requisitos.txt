@@ -7,3 +7,14 @@
 * Sempre que a transação for do tipo TRANSFERÊNCIA ou PAGAMENTO DE BOLETO, o valor da transação deve ser subtraído do saldo da conta.
 * O saldo deve sempre ser atualizado na tela da aplicação a cada transação realizada.
 
+====================================
+
+* As informações da conta deverão estar em um modeulo específico chamado "Conta"
+- Saldo 
+- Data de Acesso 
+- Registro de Transações realizadas 
+- Histórico de Transações
+
+* Os componentes 
+- Nova transação: deverá aepnas coletar as informações do form da interface e repassar os dados pro módulo "Account"
+- Saldo: deverá essencialmente exibir as informações de data de acesso e do saldo para o usuário na interface acessando esses dados através do módulo "Account"
