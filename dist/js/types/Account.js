@@ -10,8 +10,8 @@ function todebit(value) {
     saldo -= value;
 }
 function todeposit(value) {
-    if (value >= 0) {
-        throw new Error("O valor a ser debitado deve ser menor que zero!");
+    if (value <= 0) {
+        throw new Error("O valor a ser depositado deve ser maior que zero!");
     }
     saldo += value;
 }

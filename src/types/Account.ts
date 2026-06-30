@@ -15,7 +15,7 @@ function todebit(value: number): void{
 
 function todeposit(value: number): void {
     if (value <= 0) {
-        throw new Error("O valor a ser depositado deve ser maior que zero!!");
+        throw new Error("O valor a ser depositado deve ser maior que zero!");
     }
     saldo += value;
 }
