@@ -4,7 +4,7 @@ import { TransationType } from "./TransationType.js";
 let saldo: number = 3000;
 
 function todebit(value: number): void{
-    if (value<= 0) {
+    if (value>= 0) {
         throw new Error("O valor a ser debitado deve ser maior que zero!");
     }
     else if (value > saldo) {
@@ -15,7 +15,7 @@ function todebit(value: number): void{
 
 function todeposit(value: number): void {
     if (value <= 0) {
-        throw new Error("O valor a ser debitado deve ser maior que zero!");
+        throw new Error("O valor a ser depositado deve ser maior que zero!");
     }
     saldo += value;
 }
