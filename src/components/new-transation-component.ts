@@ -1,6 +1,7 @@
 import Account from "../types/Account.js";
 import { Transation } from "../types/Transation.js";
 import { TransationType } from "../types/TransationType.js";
+import ExatratoComponent from "./extrato-components.js";
 import SaldoComponent from "./saldo-component.js";
 
 const elementForms = document.querySelector(".block-new-transation form") as HTMLFormElement;
@@ -21,7 +22,7 @@ elementForms.addEventListener("submit", function(event) {
 
         let transationType: TransationType = inputTransationType.value as TransationType;
         let value: number = inputValue.valueAsNumber;
-        let date: Date = new Date(inputDate.value);
+        let date: Date = new Date(inputDate.value + " 00:00:00");
         
 
         const newTransation: Transation = {
@@ -32,6 +33,7 @@ elementForms.addEventListener("submit", function(event) {
 
         Account.registerTransation(newTransation);
         SaldoComponent.update();
+        ExatratoComponent.update();
         elementForms.reset();
     }
     catch(erro) {

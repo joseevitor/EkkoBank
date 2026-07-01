@@ -32,3 +32,9 @@ function torenderExtrato() {
     }
     elementRegisterTransationsExtract.innerHTML = htmlRegisterTransations;
 }
+const ExatratoComponent = {
+    update() {
+        torenderExtrato();
+    }
+};
+export default ExatratoComponent;

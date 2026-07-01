@@ -1,6 +1,6 @@
 export enum FormatDate {
-    DEFAULT = "DD/MM/YYYY",
-    DAY_WEEK_DAY_MONTH_YEAR = "DAY_WEEK, DD/MM/YYYY",
+    DEFAULT = "DD/MM/AAAA",
+    DAY_WEEK_DAY_MONTH_YEAR = "DIA_SEMANA, DD/MM/AAAA",
     DAY_MONTH = "DD/MM"
 }
 /*

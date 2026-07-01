@@ -48,7 +48,7 @@ const Account = {
 
         for(let transation of transationsSorted) {
             let labelTransationGroup: string = transation.date.toLocaleDateString("pt-br", { month: "long", year: "numeric"});
-            if (CurrentLabelTransationGroup != labelTransationGroup) {
+            if (CurrentLabelTransationGroup !== labelTransationGroup) {
                 CurrentLabelTransationGroup = labelTransationGroup;
                 transationGroups.push({
                     label: labelTransationGroup,
@@ -68,6 +68,7 @@ const Account = {
             }
             else if (newTransation.transationType == TransationType.TRANSFERENCIA || newTransation.transationType == TransationType.PAGAMENTO_BOLETO) {
                 todebit(newTransation.value);
+                newTransation.value *= -1;
             } 
             else {
                 throw new Error("Tipo de Transação é inválido!");

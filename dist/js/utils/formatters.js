@@ -3,7 +3,7 @@ export function toformatCoin(value) {
     return value.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
 }
 export function toformatDate(date, format = FormatDate.DEFAULT) {
-    if (format == FormatDate.DAY_WEEK_DAY_MONTH_YEAR) {
+    if (format === FormatDate.DAY_WEEK_DAY_MONTH_YEAR) {
         return date.toLocaleDateString("pt-br", {
             weekday: "long",
             day: "2-digit",
@@ -11,7 +11,7 @@ export function toformatDate(date, format = FormatDate.DEFAULT) {
             year: "numeric"
         });
     }
-    else if (format == FormatDate.DAY_MONTH) {
+    else if (format === FormatDate.DAY_MONTH) {
         return date.toLocaleDateString("pt-br", { day: "2-digit", month: "2-digit" });
     }
     return date.toLocaleDateString("pt-br");
