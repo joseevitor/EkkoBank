@@ -2,7 +2,7 @@
     height: 400px;
     padding-left: 25px;
     border-radius: 8px;
-    background-image: url('../../images/saldo-eb1.png.png'), url('../../images/saldo-bg2.png');
+    background-image: url('../../images/saldo-bg2.png');
     background-position: bottom left, top right;
     background-repeat: no-repeat;
     background-color: var(--cor-secundaria);

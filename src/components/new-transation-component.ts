@@ -42,7 +42,7 @@ elementForms.addEventListener("submit", function(event) {
         }
         else {
             alert(String(erro));
-        }
+        }   
     }
 });
 

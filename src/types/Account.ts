@@ -1,7 +1,15 @@
 import { Transation } from "./Transation.js";
+import { TransationGroup } from "./TransationGroup.js";
 import { TransationType } from "./TransationType.js";
 
-let saldo: number = 3000;
+let saldo: number = JSON.parse(localStorage.getItem("saldo") ?? "0");
+const transations: Transation[] = JSON.parse(localStorage.getItem("transations") ?? "[]", (key: string, value: string) => { 
+    if (key === "date") {
+        return new Date(value);
+    }
+
+    return value;
+});
 
 function todebit(value: number): void{
     if (value<= 0) {
@@ -11,6 +19,7 @@ function todebit(value: number): void{
         throw new Error("Saldo insuficiente!");
     }
     saldo -= value;
+    localStorage.setItem("saldo", saldo.toString());
 }
 
 function todeposit(value: number): void {
@@ -18,6 +27,7 @@ function todeposit(value: number): void {
         throw new Error("O valor a ser depositado deve ser maior que zero!");
     }
     saldo += value;
+    localStorage.setItem("saldo", saldo.toString());
 }
 
 const Account = {
@@ -27,6 +37,29 @@ const Account = {
 
     getAccessDate(): Date {
         return new Date();
+    },
+
+    getTransationGroups(): TransationGroup[] {
+        const transationGroups: TransationGroup[] = [];
+        /*const transationsList: Transation[] = structuredClone(transations);*/
+        const transationsList = [...transations];
+        const transationsSorted: Transation[] = transationsList.sort((t1, t2) => t2.date.getTime() - t1.date.getTime());
+        let CurrentLabelTransationGroup: string = "";
+
+        for(let transation of transationsSorted) {
+            let labelTransationGroup: string = transation.date.toLocaleDateString("pt-br", { month: "long", year: "numeric"});
+            if (CurrentLabelTransationGroup != labelTransationGroup) {
+                CurrentLabelTransationGroup = labelTransationGroup;
+                transationGroups.push({
+                    label: labelTransationGroup,
+                    transations: []
+                });
+            }
+            /*transationGroups.at(-1).transations.push(transation);*/
+            transationGroups[transationGroups.length - 1].transations.push(transation);
+        }
+
+        return transationGroups;
     },
 
     registerTransation(newTransation: Transation): void {
@@ -41,6 +74,10 @@ const Account = {
             }
 
             console.log(newTransation);
+            console.log(this.getTransationGroups());
+
+            transations.push(newTransation);
+            localStorage.setItem("transations", JSON.stringify(transations));
     }
 }
 
